@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SafeAlert Multitex</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Inclua a biblioteca jsPDF -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<body>
+    <header>
+        <h1>SafeAlert Multitex</h1>
+    </header>
+    <main>
+        <section id="registration-form">
+            <h2>Registro de Ocorrências</h2>
+            <form id="incident-form">
+                <label for="incident-description">Descrição da ocorrência:</label>
+                <textarea id="incident-description" name="incident-description" rows="4" required></textarea>
+
+                <label for="incident-location">Local da Ocorrência:</label>
+                <input type="text" id="incident-location" name="incident-location" required>
+
+                <label for="incident-date">Data da Ocorrência:</label>
+                <input type="date" id="incident-date" name="incident-date" required>
+
+                <label for="incident-time">Hora da Ocorrência:</label>
+                <input type="time" id="incident-time" name="incident-time" required>
+
+                <label for="incident-type">Classificação do tipo de Ocorrência:</label>
+                <select id="incident-type" name="incident-type" required>
+                    <option value="desvio">Desvios (comportamentos ou condições inseguras)</option>
+                    <option value="quase-acidente">Quase acidentes (incidentes que poderiam ter resultado em acidentes)</option>
+                    <option value="acidente-leve">Acidentes de trabalho pessoal (danos pessoais)</option>
+                    <option value="acidente-material">Acidente Material (danos materiais)</option>
+                    <option value="acidente-ambiental">Acidente Ambiental (danos ao meio ambiente)</option>
+                    <option value="acidente-trajeto">Acidente de Trajeto</option>
+                </select>
+
+                <label for="actions-taken">Ações tomadas após a ocorrência:</label>
+                <textarea id="actions-taken" name="actions-taken" rows="4"></textarea>
+
+                <button type="submit">Registrar</button>
+            </form>
+        </section>
+
+        <section id="reports">
+            <h2>Registros</h2>
+            <button onclick="generatePDF()">Gerar Relatório em PDF</button> <!-- Botão para gerar PDF -->
+            <div id="reports-list">
+                <!-- Relatórios serão exibidos aqui -->
+            </div>
+        </section>
+
+        <section id="charts">
+            <h2>Gráficos</h2>
+            <div style="height: 400px;"> <!-- Contêiner com altura fixa para o gráfico -->
+                <canvas id="status-chart"></canvas>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2025 SafeAlert Multitex idealizado por Juan Funes</p>
+    </footer>
+
+    <!-- Modal para exclusão protegida por senha -->
+    <div id="delete-modal" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: white; padding: 20px; border: 1px solid #ccc; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+        <h3>Excluir Registro</h3>
+        <p>Digite a senha para confirmar a exclusão:</p>
+        <input type="password" id="delete-password" placeholder="Senha">
+        <button onclick="confirmDelete()">Confirmar</button>
+        <button onclick="closeDeleteModal()">Cancelar</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

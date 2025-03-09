@@ -1,0 +1,115 @@
+/* style.css */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f8f8; 
+    color: #333;
+    line-height: 1.6;
+}
+
+header {
+    background-color: #FFFF00;
+    color: #333;
+    padding: 1.5em 0;
+    text-align: center;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+section {
+    margin-bottom: 25px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 12px; 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.07); 
+}
+
+h2, h3 {
+    color: #333;
+    border-bottom: 2px solid #FFFF00; 
+    padding-bottom: 8px;
+    margin-bottom: 20px;
+    font-weight: 500;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500; 
+    color: #495057;
+}
+
+input[type="text"],
+input[type="date"],
+select,
+textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd; 
+    border-radius: 8px; 
+    box-sizing: border-box;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    background-color: #f9f9f9; 
+}
+
+input[type="text"]:focus,
+input[type="date"]:focus,
+select:focus,
+textarea:focus {
+    border-color: #FFFF00; 
+    outline: none;
+    box-shadow: 0 0 0 0.2rem rgba(255, 255, 0, 0.25); 
+}
+
+button {
+    background-color: #FFFF00; 
+    color: #333;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px; 
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease, transform 0.2s ease; 
+}
+
+button:hover {
+    background-color: #e6e600; 
+    transform: translateY(-2px); 
+}
+
+button:active {
+    background-color: #cccc00;
+    transform: translateY(0); 
+}
+
+footer {
+    text-align: center;
+    padding: 1.5em 0;
+    background-color: #FFFF00; 
+    color: #333;
+}
+
+@media (max-width: 768px) {
+    main {
+        padding: 10px;
+    }
+
+    section {
+        padding: 15px;
+    }
+
+    button {
+        width: 100%;
+        padding: 10px;
+    }
+}
